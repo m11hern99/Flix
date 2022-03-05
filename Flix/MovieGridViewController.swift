@@ -23,12 +23,12 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         
-        let width = (view.frame.size.width - layout.minimumInteritemSpacing * 3) / 2.5
+        let width = (view.frame.size.width) / 2
         
-        layout.itemSize = CGSize(width: width + 35, height: width*3/2 )
+        layout.itemSize = CGSize(width: (width - 2), height: (width*3)/2)
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/634649/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -83,7 +83,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         detailsViewController.movie = movie
         
-      //  collectionView.deselectItem(at: indexPath, animated: true)
     }
     
 }
